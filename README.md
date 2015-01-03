@@ -1,3 +1,2 @@
-# Tic Tac Toe Game
-## Tealeaf Academy
-### Course 01 Lesson 01
+# Tic Tac Toe Assignment
+Tealeaf Academy: C01L01
