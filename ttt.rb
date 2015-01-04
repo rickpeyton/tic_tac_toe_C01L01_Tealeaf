@@ -2,6 +2,12 @@
 # Tealeaf Academy C01L01
 require 'pry'
 
+def initialize_board
+  board = {}
+  ('1'..'9').each { |position| board[position] = ' ' }
+  board
+end
+
 VICTORY_CONDITIONS =
   { a: '123',
     b: '456',
@@ -32,21 +38,20 @@ def check_for_victory(pick, all_picks, victory_conditions)
 end
 
 def draw_game_board(moves)
-puts <<EOF
-
-      |   |   
-    #{moves['1']} | #{moves['2']} | #{moves['3']} 
-      |   |   
-   ---+---+---
-      |   |   
-    #{moves['4']} | #{moves['5']} | #{moves['6']} 
-      |   |   
-   ---+---+---
-      |   |   
-    #{moves['7']} | #{moves['8']} | #{moves['9']} 
-      |   |   
-
-EOF
+  system 'clear'
+  puts ''
+  puts '      |   |   '
+  puts "    #{moves['1']} | #{moves['2']} | #{moves['3']} "
+  puts '      |   |   '
+  puts '   ---+---+---'
+  puts '      |   |   '
+  puts "    #{moves['4']} | #{moves['5']} | #{moves['6']} "
+  puts '      |   |   '
+  puts '   ---+---+---'
+  puts '      |   |   '
+  puts "    #{moves['7']} | #{moves['8']} | #{moves['9']} "
+  puts '      |   |   '
+  puts ''
 end
 
 player_score = 0
@@ -60,9 +65,7 @@ puts ''
 begin
   all_player_picks = []
   all_comp_picks = []
-  possible_moves =
-    { '1' => ' ', '2' => ' ', '3' => ' ', '4' => ' ', '5' => ' ',
-      '6' => ' ', '7' => ' ', '8' => ' ', '9' => ' ' }
+  possible_moves = initialize_board
   total_moves = 0
   draw_game_board(possible_moves)
   game_over = false
